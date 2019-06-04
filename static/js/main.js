@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     initialized: false,
 
-    mainNavAnimated: (document.querySelector('[data-menuAnimated]').dataset.menuanimated === 'true') ? true : false,
+    //mainNavAnimated: (document.querySelector('[data-menuAnimated]').dataset.menuanimated === 'true') ? true : false,
 
     isIE: function(){
       /* detect IE

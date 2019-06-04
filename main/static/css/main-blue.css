@@ -373,6 +373,10 @@ p {
         -ms-flex-preferred-size: 75%;
             flex-basis: 75%; } }
 
+.o-main {
+  min-height: 79.5vh;
+}
+
 .o-screen-contact {
   margin-bottom: 70px;
   display: -ms-flexbox;

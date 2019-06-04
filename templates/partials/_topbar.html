@@ -1,0 +1,29 @@
+{% load static %}
+
+<header class="c-main-header">
+
+  <div class="o-container">
+
+    <!-- NAVIGATION -->
+    <div class="c-main-header__nav-wrapper">
+      <nav class="c-main-nav js-main-nav">
+        <ul class="c-main-nav__list nav-fixed--is-active js-main-nav__list">
+          <li class="c-main-nav__item"><a href="{% url 'index' %}" class="c-main-nav__link" data-navPosition="1">About</a></li>
+          <li class="c-main-nav__item"><a href="{% url 'education' %}" class="c-main-nav__link" data-navPosition="2">Education</a></li>
+          <li class="c-main-nav__item"><a href="{% url 'research' %}" class="c-main-nav__link" data-navPosition="3">Research</a></li>
+          <li class="c-main-nav__item"><a href="{% url 'publications' %}" class="c-main-nav__link" data-navPosition="4">Publications</a></li>
+          <li class="c-main-nav__item"><a href="{% url 'teaching' %}" class="c-main-nav__link" data-navPosition="5">Teaching</a></li>
+          <li class="c-main-nav__item"><a href="{% url 'contact' %}" class="c-main-nav__link" data-navPosition="6">Contacts</a></li>
+        </ul>
+        <div class="c-main-nav__bars js-main-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+    <!-- NAVIGATION END -->
+
+  </div>
+
+</header>

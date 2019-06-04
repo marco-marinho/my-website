@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="o-main">
+ <!-- CONTACT -->
+  <div id="section-contacts" class="o-container   wow1 fadeIn"  data-contentPosition="6">
+
+    <div class="c-screen-contact o-screen-contact">
+      <div class="o-screen-contact__col-info">
+        <a class="c-screen-contact__item" href="mailto:mailme@gmail.com">mailme@gmail.com</a>
+        <a class="c-screen-contact__item">skype: simpson</a>
+        <a class="c-screen-contact__item" href="tel:88523452100">8-852-345-21-00</a>
+        <ul class="c-socials u-mb-20">
+          <li class="c-socials__item">
+            <a href="#" class="c-socials__link">
+              <i class="icofont icofont-brand-linkedin"></i>
+            </a>
+          </li>
+          <li class="c-socials__item">
+            <a href="#" class="c-socials__link">
+              <i class="icofont icofont-social-facebook"></i>
+            </a>
+          </li>
+          <li class="c-socials__item">
+            <a href="#" class="c-socials__link">
+              <i class="icofont icofont-social-twitter"></i>
+            </a>
+          </li>
+        </ul>
+        <ul class="c-screen-contact__address">
+          <li>Control Systems Lab,</li>
+          <li>Building W,</li>
+          <li>Chemical Engineering Department,</li>
+          <li>National Technological University of Roma</li>
+        </ul>
+      </div>
+      <div class="o-screen-contact__col-form">
+        <form class="c-form js-form-validation" action="#" method="get">
+          <label for="contact-name">Your name</label>
+          <input class="c-form__field" id="contact-name" type="text" placeholder="Mary Jane, for example" required>
+          <label for="contact-email">Your e-mail</label>
+          <input class="c-form__field" id="contact-email" type="email" placeholder="yourmail@mail.com" required>
+          <label for="contact-message">Message text</label>
+          <textarea class="c-form__field" id="contact-message" name="name" placeholder="Write here your question or interesting offer" required></textarea>
+          <fieldset class="u-text-right">
+            <button class="c-button c-button--primary" type="submit" name="contact-submit">send a message</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

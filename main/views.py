@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Education, Publication
 
+
 def index(request):
 
     education = Education.objects.order_by('-end_year')
@@ -21,3 +22,56 @@ def index(request):
     }
 
     return render(request, 'main/main-blue.html', context)
+
+
+def education(request):
+
+    education = Education.objects.order_by('-end_year')
+
+    context = {
+        'education': education,
+    }
+
+    return render(request, 'main/education.html', context)
+
+def research(request):
+
+    education = Education.objects.order_by('-end_year')
+
+    context = {
+        'education': education,
+    }
+
+    return render(request, 'main/research.html', context)
+
+def publications(request):
+
+    publications = Publication.objects.order_by('-end_year')
+
+    context = {
+        'publications': publications,
+    }
+
+    return render(request, 'main/publications.html', context)
+
+
+def teaching(request):
+
+    publications = Publication.objects.order_by('-end_year')
+
+    context = {
+        'publications': publications,
+    }
+
+    return render(request, 'main/teaching.html', context)
+
+
+def contact(request):
+
+    publications = Publication.objects.order_by('-end_year')
+
+    context = {
+        'publications': publications,
+    }
+
+    return render(request, 'main/contact.html', context)
