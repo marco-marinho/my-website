@@ -18,7 +18,7 @@
         <ul class="c-socials u-mb-35">
           <li class="c-socials__item">
             <a href="{{ dados.linkedin }}" target="_blank" class="c-socials__link">
-              <i class="icofont icofont-brand-linkedin"></i>
+              <i class="fab fa-linkedin"></i>
             </a>
           </li>
           <li class="c-socials__item">
@@ -39,11 +39,12 @@
         </ul>
         <p class="u-mb-10"><span class="u-block">Hello!</span>{{ dados.intro }}</p>
 
-        <a class="c-button c-button--bold-text u-mb-30" href="#">download cv</a>
+        <a class="c-button c-button--bold-text u-mb-30" href="{% static 'files/cv.pdf' %}">download cv</a>
 
         <h3 class="u-mb-10">Latest publications:</h3>
-        <a href="#"><p class="u-mb-10" >Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p></a>
-        <a href="#"><p class="u-mb-10" >Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></a>
+          {% for publication in publications %}
+              <a href="{{ publication.file.url }}"><p class="u-mb-10" >{{ publication.title }}</p></a>
+          {% endfor %}
       </div>
     </div>
     </div>

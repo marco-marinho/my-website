@@ -19,6 +19,7 @@ class Publication(models.Model):
     file = models.FileField(upload_to='papers')
     booktitle = models.TextField()
     Year = models.TextField()
+    abstract = models.TextField()
 
     def __str__(self):
         return self.title

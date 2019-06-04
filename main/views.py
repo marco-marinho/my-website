@@ -16,9 +16,12 @@ def index(request):
         'schoolar': 'https://scholar.google.com.br/citations?user=DwO2P_UAAAAJ&hl=en'
     }
 
+    publications = Publication.objects.order_by('-Year')[:2]
+
     context = {
         'dados': dados,
         'education': education,
+        'publications': publications,
     }
 
     return render(request, 'main/main-blue.html', context)
@@ -46,7 +49,7 @@ def research(request):
 
 def publications(request):
 
-    publications = Publication.objects.order_by('-end_year')
+    publications = Publication.objects.order_by('-Year')
 
     context = {
         'publications': publications,
