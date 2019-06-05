@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pessoal',
-        'USER': 'postgres',
+        'USER': 'django',
         'PASSWORD': 'rataoratinho',
         'HOST': 'localhost',
     }
@@ -131,3 +131,8 @@ STATICFILES_DIR = [
 # Media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
