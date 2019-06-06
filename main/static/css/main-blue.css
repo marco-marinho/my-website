@@ -790,6 +790,9 @@ p {
 .c-timeline__header {
   position: relative; }
 
+.c-timeline__title {
+  margin-bottom: 10px; }
+
 .c-timeline__heading {
   margin-bottom: 10px; }
 
