@@ -2,6 +2,10 @@ from django.shortcuts import render, get_list_or_404, redirect
 from .models import Education, Publication, Research, Teaching, Resource
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.conf import settings
+
+import urllib
+import json
 
 def index(request):
 
@@ -78,8 +82,8 @@ def contact(request):
 
     context = {
         'nome': 'Marco A. M. Marinho',
-        'skype': 'marco.marinho@outlook.com',
-        'email': 'marco.marinho@ieee.org',
+        'skype': 'marco(dot)marinho(at)outlook(dot)com',
+        'email': 'marco(dot)marinho(at)ieee(dot)org',
         # 'linkedin': 'https://www.linkedin.com/in/marco-antonio-marques-marinho-166553140/',
         # 'github': 'https://github.com/marco-marinho',
         # 'researchgate': 'https://www.researchgate.net/profile/Marco_Marinho2',
@@ -103,18 +107,34 @@ def resources(request, topicid):
 def sendmessage(request):
 
     if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        message = request.POST['message']
 
-        send_mail(
-            'Website contact',
-            'Você recebeu uma messagem de: ' + name +'\nE-mail de contato: '+ email +'\n \nMensagem: ' + message,
-            'marinho@gmx.com',
-            ['marcoobom@gmail.com'],
-            fail_silently=False
-        )
+        ''' Begin reCAPTCHA validation '''
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        values = {
+            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
+        }
+        data = urllib.parse.urlencode(values).encode()
+        req = urllib.request.Request(url, data=data)
+        response = urllib.request.urlopen(req)
+        result = json.loads(response.read().decode())
+        ''' End reCAPTCHA validation '''
 
-        messages.success(request, 'Your message has been sent, I will get back to you as soon as possible.')
+        if result['success']:
 
-        return redirect('/contact')
+            name = request.POST['name']
+            email = request.POST['email']
+            message = request.POST['message']
+
+            send_mail(
+                'Website contact',
+                'Você recebeu uma messagem de: ' + name + '\nE-mail de contato: ' + email + '\n \nMensagem: ' + message,
+                'marinho@gmx.com',
+                ['marcoobom@gmail.com'],
+                fail_silently=False
+            )
+
+            messages.success(request, 'Your message has been sent, I will get back to you as soon as possible.')
+
+            return redirect('/contact')
