@@ -3,45 +3,60 @@
 {% block content %}
 <main class="o-main">
  <!-- CONTACT -->
+{% if messages %}
+<div class="o-container alert success">
+    <span class="closebtn">&times;</span>
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+
   <div id="section-contacts" class="o-container   wow1 fadeIn"  data-contentPosition="6">
 
     <div class="c-screen-contact o-screen-contact">
+
       <div class="o-screen-contact__col-info">
-        <a class="c-screen-contact__item" href="mailto:mailme@gmail.com">mailme@gmail.com</a>
-        <a class="c-screen-contact__item">skype: simpson</a>
-        <a class="c-screen-contact__item" href="tel:88523452100">8-852-345-21-00</a>
-        <ul class="c-socials u-mb-20">
+        <a class="c-screen-contact__item" href="mailto:mailme@gmail.com">{{ email }}</a>
+        <a class="c-screen-contact__item">skype: {{ skype }}</a>
+        <ul class="c-socials u-mb-35">
           <li class="c-socials__item">
-            <a href="#" class="c-socials__link">
-              <i class="icofont icofont-brand-linkedin"></i>
+            <a href="{{ dados.linkedin }}" target="_blank" class="c-socials__link">
+              <i class="fab fa-linkedin"></i>
             </a>
           </li>
           <li class="c-socials__item">
-            <a href="#" class="c-socials__link">
-              <i class="icofont icofont-social-facebook"></i>
+            <a href="{{ dados.github }}" target="_blank" class="c-socials__link">
+              <i class="fab fa-github"></i>
             </a>
           </li>
           <li class="c-socials__item">
-            <a href="#" class="c-socials__link">
-              <i class="icofont icofont-social-twitter"></i>
-            </a>
+            <a href="{{ dados.researchgate }}" class="c-socials__link">
+              <i class="fab fa-researchgate"></i>
+          </a>
           </li>
+            <li class="c-socials__item">
+            <a href="{{ dados.schoolar }}" class="c-socials__link">
+              <i class="fas fa-graduation-cap"></i>
+          </a>
+        </li>
         </ul>
         <ul class="c-screen-contact__address">
-          <li>Control Systems Lab,</li>
-          <li>Building W,</li>
-          <li>Chemical Engineering Department,</li>
-          <li>National Technological University of Roma</li>
+          <li>Laboratório de Tecnologias da Tomada de Decisão</li>
+          <li>Faculdade de Tecnologia</li>
+          <li>Departamento do Engenharia Eletrica</li>
+          <li>Universidade de Brasilia</li>
         </ul>
       </div>
       <div class="o-screen-contact__col-form">
-        <form class="c-form js-form-validation" action="#" method="get">
+        <form class="c-form js-form-validation" action="{% url 'sendmessage' %}" method="post">
+            {% csrf_token %}
           <label for="contact-name">Your name</label>
-          <input class="c-form__field" id="contact-name" type="text" placeholder="Mary Jane, for example" required>
+          <input class="c-form__field" name="name" type="text" placeholder="Mary Jane, for example" required>
           <label for="contact-email">Your e-mail</label>
-          <input class="c-form__field" id="contact-email" type="email" placeholder="yourmail@mail.com" required>
+          <input class="c-form__field" name="email" type="email" placeholder="yourmail@mail.com" required>
           <label for="contact-message">Message text</label>
-          <textarea class="c-form__field" id="contact-message" name="name" placeholder="Write here your question or interesting offer" required></textarea>
+          <textarea class="c-form__field" id="contact-message" name="message" placeholder="Write here your question or interesting offer" required></textarea>
           <fieldset class="u-text-right">
             <button class="c-button c-button--primary" type="submit" name="contact-submit">send a message</button>
           </fieldset>

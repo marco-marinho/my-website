@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="o-main">
+<!-- Resources -->
+  <div id="section-publications" class="o-container   wow1 fadeIn"  data-contentPosition="4">
+
+    <div class="c-screen-publications o-screen-publications">
+      <div class="o-screen-publications__col">
+        <div class="c-article">
+            {% for resource in resources %}
+          <div class="c-article__item">
+            <div class="c-article__body">
+              <h3 class="c-article__header">{{ resource.title }}</h3>
+                <p class="c-article__text">{{ resource.description }}</p>
+              <div class="c-article__button">
+                <a href="{{ resource.file.url }}" class="c-button c-button--simple-text">Download resource</a><i class="icofont icofont-external-link"></i>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
+{% endblock %}
