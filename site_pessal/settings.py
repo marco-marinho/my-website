@@ -25,7 +25,7 @@ SECRET_KEY = '9#_fm(xl70cw_quf$h5b2-jq0%=a0i0qx9_%hhlyhb1*c8vh-+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
 
 # Application definition
@@ -80,8 +80,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pessoal',
         'USER': 'django',
-        'PASSWORD': 'rataoratinho',
-        'HOST': 'localhost',
+        'PASSWORD': 'docker',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
