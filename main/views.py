@@ -12,13 +12,13 @@ def index(request):
     education = Education.objects.order_by('-end_year')
 
     dados = {
-        'nome': 'Marco Marinho',
-        'titulo': 'Doctor of Electrical Engineering and Computer Science',
-        'intro': 'Welcome to my personal website. Here you can have an overview of my current and past research topics, have access to the work I have developed and am currently developing, and take a look at the presentations I have used to explain my work. Feel free to contact me directly if any of my research topics or works have interested you.',
-        'linkedin': 'https://www.linkedin.com/in/marco-antonio-marques-marinho-166553140/',
-        'github': 'https://github.com/marco-marinho',
-        'researchgate': 'https://www.researchgate.net/profile/Marco_Marinho2',
-        'schoolar': 'https://scholar.google.com.br/citations?user=DwO2P_UAAAAJ&hl=en'
+        'nome': 'Stephanie Alvarez',
+        'titulo': 'Doctor of Electrical Engineering and Network Information Technologies',
+        'intro': 'Stephanie Alvarez holds a PhD in Electrical Engineering and Network Information Technologies from the University of Brasilia (Unb), Brazil in cotutelle with the Open University of Catalonia (UOC), Spain. Before starting her PhD, she concluded her MSc in electrical engineering at Unb from where she built a good background in languages programming such as Matlab, Java, C and the general knowledge about designing different kinds of algorithms, including recursive algorithms. Her main research topics are optimization and simulation, machine learning and adaptive signal processing. Stephanie’s available for new research opportunities on her topics of interest, as well as private consultations.',
+        'linkedin': 'https://www.linkedin.com/in/stephanie-alvarez-fernandez-43b58633/',
+        'orcid': 'https://orcid.org/0000-0002-0884-8925',
+        'researchgate': 'https://www.researchgate.net/profile/Stephanie_Alvarez',
+        'lattes': 'http://lattes.cnpq.br/0059463083150585'
     }
 
     publications = Publication.objects.order_by('-date')[:2]
@@ -81,9 +81,9 @@ def teaching(request):
 def contact(request):
 
     context = {
-        'nome': 'Marco A. M. Marinho',
-        'skype': 'marco(dot)marinho(at)outlook(dot)com',
-        'email': 'marco(dot)marinho(at)ieee(dot)org',
+        'nome': 'Stephanie M. Alvarez Fernandez',
+        'skype': 'stephaniemaf(at)outlook(dot)com',
+        'email': 'stephaniemaf(at)gmail(dot)com',
         # 'linkedin': 'https://www.linkedin.com/in/marco-antonio-marques-marinho-166553140/',
         # 'github': 'https://github.com/marco-marinho',
         # 'researchgate': 'https://www.researchgate.net/profile/Marco_Marinho2',

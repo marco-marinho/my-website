@@ -9,7 +9,7 @@
       <div class="o-screen-about__col">
         <figure class="c-screen-about__image">
           <span></span>
-          <img src="{% static 'pic/marco2.jpg' %}" alt="">
+          <img src="{% static 'pic/cv2.jpg' %}" alt="">
         </figure>
       </div>
       <div class="o-screen-about__col">
@@ -22,8 +22,8 @@
             </a>
           </li>
           <li class="c-socials__item">
-            <a href="{{ dados.github }}" target="_blank" class="c-socials__link">
-              <i class="fab fa-github"></i>
+            <a href="{{ dados.orcid }}" target="_blank" class="c-socials__link">
+              <i class="fas fa-glasses"></i>
             </a>
           </li>
           <li class="c-socials__item">
@@ -32,12 +32,12 @@
           </a>
           </li>
             <li class="c-socials__item">
-            <a href="{{ dados.schoolar }}" class="c-socials__link">
-              <i class="fas fa-graduation-cap"></i>
+            <a href="{{ dados.lattes }}" class="c-socials__link">
+              <i class="fas fa-search"></i>
           </a>
         </li>
         </ul>
-        <p class="u-mb-10"><span class="u-block">Hello!</span>{{ dados.intro }}</p>
+        <p class="u-mb-10">{{ dados.intro }}</p>
 
         <a class="c-button c-button--bold-text u-mb-30" href="{% static 'files/cv.pdf' %}">download cv</a>
 
